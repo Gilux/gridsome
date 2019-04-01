@@ -1,27 +1,27 @@
 <template>
   <Layout>
-    
-    <!-- Learn how to use images here: https://gridsome.org/docs/images -->
-    <g-image alt="Example image" src="~/favicon.png" width="135" />
-    
-    <h1>Hello, world!</h1>
-   
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia eos quod asperiores
-    </p>
-
-    <p class="home-links">
-      <a href="https://gridsome.org/docs" target="_blank" rel="noopener">Gridsome Docs</a>
-      <a href="https://github.com/gridsome/gridsome" target="_blank" rel="noopener">GitHub</a>
-    </p>
-
+    <div class="band">
+      <div class="item-1">
+        <a href="https://design.tutsplus.com/articles/international-artist-feature-malaysia--cms-26852" class="card">
+          <div class="thumb" style="background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/flex-1.jpg);"></div>
+          <article>
+            <h1>International Artist Feature: Malaysia</h1>
+            <span>Mary Winkler</span>
+          </article>
+        </a>
+      </div>
+    </div>
   </Layout>
 </template>
 
 <script>
+import Layout from '~/layouts/Default.vue'
 export default {
   metaInfo: {
     title: 'Hello, world!'
+  },
+  components: {
+    Layout
   }
 }
 </script>

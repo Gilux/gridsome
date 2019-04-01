@@ -1,13 +1,7 @@
 <template>
   <div class="layout">
-    <header class="header">
-      <strong>
-        <g-link to="/">{{ $static.metaData.siteName }}</g-link>
-      </strong>
-      <nav class="nav">
-        <g-link class="nav__link" to="/">Home</g-link>
-        <g-link class="nav__link" to="/about">About</g-link>
-      </nav>
+    <header>
+      <h1>Cool Articles</h1>
     </header>
     <slot/>
   </div>
@@ -21,30 +15,101 @@ query {
 }
 </static-query>
 
-<style>
-body {
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  margin:0;
-  padding:0;
-  line-height: 1.5;
+<style lang="scss">
+html {
+  background: #f5f7f8;
+  font-family: system-ui;
+  -webkit-font-smoothing: antialiased;
+  padding: 20px 0;
 }
 
-.layout {
-  max-width: 760px;
+header {
+  width: 90%;
+  max-width: 1240px;
   margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
+}
+.band {
+  width: 90%;
+  max-width: 1240px;
+  margin: 0 auto;
+  
+  display: grid;
+  
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-gap: 20px;
+  
+  @media (min-width: 30em) {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  @media (min-width: 60em) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
-.header {
+.card {
+  background: white;
+  text-decoration: none;
+  color: #444;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  height: 80px;
+  flex-direction: column;
+  min-height: 100%;
+  
+  // sets up hover state
+  position: relative;
+  top: 0;
+  transition: all .1s ease-in;
+    
+  &:hover {
+    top: -2px;
+    box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+  }
+  
+  article {
+    padding: 20px;
+    flex: 1;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  h1 {
+    font-size: 20px;
+    margin: 0;
+    color: #333;
+  }
+  
+  p {
+    flex: 1;
+    line-height: 1.4;
+  }
+  
+  span {
+    font-size: 12px;
+    font-weight: bold;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    margin: 2em 0 0 0;
+  }
+  
+  .thumb {
+    padding-bottom: 60%;
+    background-size: cover;
+    background-position: center center;
+  }
 }
 
-.nav__link {
-  margin-left: 20px;
+.item-1 {
+  @media (min-width: 60em) {
+    grid-column: 1 / span 2;
+    
+    h1 {
+      font-size: 24px;
+    }
+  }
 }
 </style>
